@@ -20,16 +20,17 @@ int main()
     set <pair<int,pair<long long, char>>> outcalls; // внешние вызовы
     vector <pair<int, pair<long long, char>>> yy;
     char dir; // направление
-    lift x;
+    //lift x;
         cin >> lift_count >> nowtime;// флаг + время вызова
         int n; // количество вызовов на этажи
-        /*
+        
         vector <lift> lifts;
         for (int i = 0; i < lift_count; i++) {
             lift d;
             lifts.push_back(d);
         }
-        */
+        lift* liftpointer = &lifts[0];
+        
         int a;
         cin >> n;
         for (int i = 0; i < n; i++) {
@@ -52,15 +53,24 @@ int main()
                 m[yy[i]].push_back(k);
             }
         }
+        while (1) {
 
-        for (pair<int, pair<long long, char>> z : outcalls) {
-            //int r = findlift(x);
-            x.gotofloor(z.first);
-            for (int i = 0; i < m[z].size(); i++)
-                x.gotofloor(m[z][i]);
+            if (outcalls.size() == 0)
+                break;
+            total_time += 10;
+            for (pair<int, pair<long long, char>> z : outcalls) {
+                int r = findlift(liftpointer,lift_count,z.first,total_time);
+                if (r == -1)
+                    break;
+                lifts[r].gotofloor(z.first);
+                for (int i = 0; i < m[z].size(); i++)
+                    lifts[r].gotofloor(m[z][i]);
+                outcalls.erase(z);
+                
 
+            }
         }
         
-    cout << "Total time " << x.get_time() << endl;
+    cout << "Total time " << total_time << endl;
 }
 
