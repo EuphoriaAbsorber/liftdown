@@ -13,8 +13,8 @@ public:
 	//void init();
 	//int copy(const lift& rv);
 	//int copy(const int cap, const long long time);
-
-
+	int is_lift_free();
+	int findlift(lift &a, int lift_count);
 	void gotofloor(int n);
 	long long get_time();
 };

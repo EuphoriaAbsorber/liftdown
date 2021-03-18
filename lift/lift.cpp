@@ -1,64 +1,66 @@
-﻿// lift.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
-//
-
+﻿
 #include <iostream>
 #include "lift.h"
+#include <string>
+#include <sstream>
 //#include "Classlift.cpp"
 #include <vector>
-#include <queue>
+//#include <queue>
+#include <set>
+#include <map>
 using namespace std;
+
 
 int main()
 {
-    char f = 'a';
-    vector <vector <int>> all;
-    all.resize(2);
-    vector <int> goup;
-    vector <int> godown;
+    long long total_time = 0;
+    long long nowtime;
+    int lift_count;
+    map <pair<int, pair<long long, char>>, vector <int>> m;
+    set <pair<int,pair<long long, char>>> outcalls; // внешние вызовы
+    vector <pair<int, pair<long long, char>>> yy;
     char dir; // направление
     lift x;
-    while (1) {
-        cin >> f;
-        if (f == 'q')
-            break;
+        cin >> lift_count >> nowtime;// флаг + время вызова
         int n; // количество вызовов на этажи
+        /*
+        vector <lift> lifts;
+        for (int i = 0; i < lift_count; i++) {
+            lift d;
+            lifts.push_back(d);
+        }
+        */
         int a;
         cin >> n;
         for (int i = 0; i < n; i++) {
             cin >> dir >> a;
-            if (dir == '^')
-                all[0].push_back(a);
-            if (dir == 'v')
-                all[1].push_back(a);
+            pair<int, pair<long long, char>> z;
+            z.first = a; // этаж
+            z.second.first = nowtime; // время вызова
+            z.second.second = dir; // направление
+            yy.push_back(z);
+            outcalls.insert(z);
         }
-       /*
-        for (int i = 0; i < all[0].size();i++) {
-            int b;
-            while (not '\0') {
-                cin >> b;
-                all[0].push_back(b);
+        string s;
+        getline(cin, s);
+        for (int i = 0; i < n; i++) {
+            
+            getline(cin, s);
+            istringstream ss(s);
+            int k;
+            while(ss >> k){
+                m[yy[i]].push_back(k);
             }
         }
-        for (int i = 0; i < all[1].size();i++) {
-            int b;
-            while (not '\0') {
-                cin >> b;
-                all[1].push_back(b);
-            }
+
+        for (pair<int, pair<long long, char>> z : outcalls) {
+            //int r = findlift(x);
+            x.gotofloor(z.first);
+            for (int i = 0; i < m[z].size(); i++)
+                x.gotofloor(m[z][i]);
+
         }
-        //for (int i = 0; i < godown.size();i++)
-            //x.gotofloor(godown[i]);
-        for(int k = 0; k<2; k++)
-            for (int i = 0; i < all[k].size();i++) {
-                x.gotofloor(all[k][i]);          
-        }
-        */
-        for (int k = 0; k < 2; k++)
-            for (int i = 0; i < all[k].size();i++) {
-                x.gotofloor(all[k][i]);
-            }
         
-    }
     cout << "Total time " << x.get_time() << endl;
 }
 
