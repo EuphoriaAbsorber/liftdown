@@ -62,8 +62,26 @@ int main()
                 break;
             for (int i = 0; i < lift_count; i++)
                 lifts[i].m_time = max(lifts[i].m_time, total_time);
-            total_time += 10;
+          
             help_set = outcalls;
+
+            for (int i = 0; i < lift_count; i++)
+                if (lifts[i].is_lift_free(total_time)) {
+                    for (auto z : outcalls) {
+                        //cout << 998 << endl;
+                        if (z.first > lifts[i].m_time)
+                            break;
+                        if (z.first <= lifts[i].m_time && z.second.first == lifts[i].m_floor) {
+                            //cout << 999 << endl;
+                            for (int j = 0; j < m[z].size(); j++)
+                                lifts[i].gotofloor(m[z][j]);
+                            help_set.erase(z);
+                            break;
+                        }
+                    }
+                    outcalls = help_set;
+                }
+
             for (auto  z : outcalls) {
                 //int r = 0;
                 int r = findlift(liftpointer,lift_count,z.second.first,total_time);
@@ -75,6 +93,14 @@ int main()
                 help_set.erase(z);
                 }
             outcalls = help_set; 
+
+            //if (lifts[0].is_lift_free(total_time)) 
+            //    cout << total_time << endl;
+
+            //cout << total_time << endl;
+            
+ 
+            total_time += 10;
         }
     for (int i = 0; i < lift_count; i++)
         total_time = max(lifts[i].m_time, total_time);

@@ -1,10 +1,11 @@
 ﻿  lift.cpp
-D:\Fork\liftdown\lift\lift.cpp(69,65): warning C4244: аргумент: преобразование "_Ty1" в "int", возможна потеря данных
+D:\Fork\liftdown\lift\lift.cpp(69,43): warning C4244: аргумент: преобразование "__int64" в "int", возможна потеря данных
+D:\Fork\liftdown\lift\lift.cpp(87,65): warning C4244: аргумент: преобразование "_Ty1" в "int", возможна потеря данных
           with
           [
               _Ty1=__int64
           ]
-D:\Fork\liftdown\lift\lift.cpp(72,44): warning C4244: аргумент: преобразование "_Ty1" в "int", возможна потеря данных
+D:\Fork\liftdown\lift\lift.cpp(90,44): warning C4244: аргумент: преобразование "_Ty1" в "int", возможна потеря данных
           with
           [
               _Ty1=__int64
