@@ -1,5 +1,6 @@
 ﻿
 #include <iostream>
+#include <algorithm>
 #include "lift.h"
 #include <string>
 #include <sstream>
@@ -18,6 +19,7 @@ int main()
     int lift_count;
     map <pair<int, pair<long long, char>>, vector <int>> m;
     set <pair<int,pair<long long, char>>> outcalls; // внешние вызовы
+    set <pair<int, pair<long long, char>>> help_set;
     vector <pair<int, pair<long long, char>>> yy;
     char dir; // направление
     //lift x;
@@ -35,9 +37,9 @@ int main()
         cin >> n;
         for (int i = 0; i < n; i++) {
             cin >> dir >> a;
-            pair<int, pair<long long, char>> z;
-            z.first = a; // этаж
-            z.second.first = nowtime; // время вызова
+            pair<long long, pair<int, char>> z;
+            z.first = nowtime; // этаж
+            z.second.first = a; // время вызова
             z.second.second = dir; // направление
             yy.push_back(z);
             outcalls.insert(z);
@@ -53,24 +55,30 @@ int main()
                 m[yy[i]].push_back(k);
             }
         }
-        while (1) {
+        
+        while (outcalls.size()) {
 
             if (outcalls.size() == 0)
                 break;
+            for (int i = 0; i < lift_count; i++)
+                lifts[i].m_time = max(lifts[i].m_time, total_time);
             total_time += 10;
-            for (pair<int, pair<long long, char>> z : outcalls) {
-                int r = findlift(liftpointer,lift_count,z.first,total_time);
+            help_set = outcalls;
+            for (auto  z : outcalls) {
+                //int r = 0;
+                int r = findlift(liftpointer,lift_count,z.second.first,total_time);
                 if (r == -1)
                     break;
-                lifts[r].gotofloor(z.first);
+                lifts[r].gotofloor(z.second.first);
                 for (int i = 0; i < m[z].size(); i++)
                     lifts[r].gotofloor(m[z][i]);
-                outcalls.erase(z);
-                
-
-            }
+                help_set.erase(z);
+                }
+            outcalls = help_set; 
         }
-        
+    for (int i = 0; i < lift_count; i++)
+        total_time = max(lifts[i].m_time, total_time);
+
     cout << "Total time " << total_time << endl;
 }
 

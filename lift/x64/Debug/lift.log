@@ -1,9 +1,23 @@
-﻿  Classlift.cpp
-D:\Fork\liftdown\lift\Classlift.cpp(51,30): warning C4244: аргумент: преобразование "__int64" в "int", возможна потеря данных
-D:\Fork\liftdown\lift\Classlift.cpp(52,11): warning C4244: =: преобразование "double" в "_Ty", возможна потеря данных
+﻿  lift.cpp
+D:\Fork\liftdown\lift\lift.cpp(69,65): warning C4244: аргумент: преобразование "_Ty1" в "int", возможна потеря данных
           with
           [
-              _Ty=int
+              _Ty1=__int64
           ]
-D:\Fork\liftdown\lift\Classlift.cpp(56,10): warning C4244: инициализация: преобразование "double" в "int", возможна потеря данных
+D:\Fork\liftdown\lift\lift.cpp(72,44): warning C4244: аргумент: преобразование "_Ty1" в "int", возможна потеря данных
+          with
+          [
+              _Ty1=__int64
+          ]
+D:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.27.29110\include\utility(221,16): warning C4244: инициализация: преобразование "const _Ty1" в "_Ty1", возможна потеря данных
+          with
+          [
+              _Ty1=__int64
+          ]
+          and
+          [
+              _Ty1=int
+          ]
+D:\Fork\liftdown\lift\lift.cpp(44): message : выполняется компиляция ссылки на экземпляр шаблон функции "std::pair<int,std::pair<__int64,char>>::pair<__int64,std::pair<int,char>,0>(const std::pair<__int64,std::pair<int,char>> &) noexcept"
+D:\Fork\liftdown\lift\lift.cpp(44): message : выполняется компиляция ссылки на экземпляр шаблон функции "std::pair<int,std::pair<__int64,char>>::pair<__int64,std::pair<int,char>,0>(const std::pair<__int64,std::pair<int,char>> &) noexcept"
   lift.vcxproj -> D:\Fork\liftdown\x64\Debug\lift.exe

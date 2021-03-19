@@ -44,10 +44,10 @@ int lift::is_lift_free(int time) {
 	return 1;
 }
 
-int findlift(lift* lifts, int lift_count, int floor, long long time){
+int findlift(lift *lifts, int lift_count, int floor, long long time){
 	int ans = -1;
 	vector <int> q(lift_count);
-	for (int i = 0; i < lift_count-1; i++) {
+	for (int i = 0; i < lift_count; i++) {
 		if (!lifts[i].is_lift_free(time))
 			q[i] = 1e9;
 		else
