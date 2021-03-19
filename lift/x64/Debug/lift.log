@@ -1,11 +1,11 @@
 ﻿  lift.cpp
-D:\Fork\liftdown\lift\lift.cpp(69,43): warning C4244: аргумент: преобразование "__int64" в "int", возможна потеря данных
-D:\Fork\liftdown\lift\lift.cpp(87,65): warning C4244: аргумент: преобразование "_Ty1" в "int", возможна потеря данных
+D:\Fork\liftdown\lift\lift.cpp(116,43): warning C4244: аргумент: преобразование "__int64" в "int", возможна потеря данных
+D:\Fork\liftdown\lift\lift.cpp(131,65): warning C4244: аргумент: преобразование "_Ty1" в "int", возможна потеря данных
           with
           [
               _Ty1=__int64
           ]
-D:\Fork\liftdown\lift\lift.cpp(90,44): warning C4244: аргумент: преобразование "_Ty1" в "int", возможна потеря данных
+D:\Fork\liftdown\lift\lift.cpp(134,44): warning C4244: аргумент: преобразование "_Ty1" в "int", возможна потеря данных
           with
           [
               _Ty1=__int64
@@ -19,6 +19,6 @@ D:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.2
           [
               _Ty1=int
           ]
-D:\Fork\liftdown\lift\lift.cpp(44): message : выполняется компиляция ссылки на экземпляр шаблон функции "std::pair<int,std::pair<__int64,char>>::pair<__int64,std::pair<int,char>,0>(const std::pair<__int64,std::pair<int,char>> &) noexcept"
-D:\Fork\liftdown\lift\lift.cpp(44): message : выполняется компиляция ссылки на экземпляр шаблон функции "std::pair<int,std::pair<__int64,char>>::pair<__int64,std::pair<int,char>,0>(const std::pair<__int64,std::pair<int,char>> &) noexcept"
+D:\Fork\liftdown\lift\lift.cpp(48): message : выполняется компиляция ссылки на экземпляр шаблон функции "std::pair<int,std::pair<__int64,char>>::pair<__int64,std::pair<int,char>,0>(const std::pair<__int64,std::pair<int,char>> &) noexcept"
+D:\Fork\liftdown\lift\lift.cpp(48): message : выполняется компиляция ссылки на экземпляр шаблон функции "std::pair<int,std::pair<__int64,char>>::pair<__int64,std::pair<int,char>,0>(const std::pair<__int64,std::pair<int,char>> &) noexcept"
   lift.vcxproj -> D:\Fork\liftdown\x64\Debug\lift.exe
