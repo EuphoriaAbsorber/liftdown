@@ -17,6 +17,7 @@ public:
 	//int copy(const int cap, const long long time);
 	int is_lift_free(int time);
 	friend int findlift(lift* lifts, int lift_count, int floor, long long time);
+	friend void time_update(lift* lifts, int lift_count, long long time);
 	void gotofloor(int n);
 	long long get_time();
 };
